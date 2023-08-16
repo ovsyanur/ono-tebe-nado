@@ -1,1 +1,335 @@
-/* место для вашего кода */
+.header {
+    padding: 92px 50px;
+    display: grid;
+    grid-template-columns: 1fr 130px 1fr;
+    align-items: center;
+    /* Выделила в каждом большом логическом блоке (header, main, footer) "базовые" параметры шрифта. А затем точечно
+    переопределяла необычные стили */
+    font-size: 18px;
+    font-weight: normal;
+    color: #000;
+}
+
+.header__links-list {
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+    list-style: circle;
+}
+
+.header__links-list-item_no-bullit {
+    list-style: none;
+}
+
+.header__link {
+    /* Попробовала реализовать, как в макете – подчёркивающая линия визуально ниже линии,
+    которую браузер предлагает по умолчанию */
+        
+    /* В дизайне подчёркивающая линия у подобных ссылок находится на разном расстоянии от текста.
+    Я предположила, что дизайнер наверняка бы заложил единый стиль для таких ссылок и сделала везде
+    одинаково: 2px */
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #000;
+}
+
+.header__link_active {
+    padding: 0;
+    border: 0;
+}
+
+.header__logo-image {
+    width: 130px;
+    margin: auto;
+}
+
+.address {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.35;
+    font-style: normal;
+}
+
+.header__address {
+    justify-self: end;
+}
+
+.address a {
+    /* Полагаю, благодаря тому, что ссылки обёрнуты в тег <div>, они становятся снова inline-элементами.
+    Поэтому подчёркивающая линия визуально продолжается только до границы ссылки по контенту */
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #000;   
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 180px;
+    /* Выделила в каждом большом логическом блоке (header, main, footer) "базовые" параметры шрифта. А затем точечно
+    переопределяла необычные стили */
+    font-size: 20px;
+    font-weight: normal;
+    color: #000;
+}
+
+.cover {
+    padding: 165px 50px 50px;
+    position: relative;
+    z-index: -1;
+    background-image: url(../images/cover.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.cover__title {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 135px;
+    /* Заметила, что "ОНО", "ТЕБЕ" и "НАДО" выравнены в макете по общей колоночной сетке. 
+    Поэтому решила расположить их с помощью grid */
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    gap: 20px 25px;
+    font-size: 100px;
+    line-height: 1.05;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 30px;
+    color: #fff;
+}
+
+.letter-spacing-extended {
+    letter-spacing: 60px;
+}
+
+.aligned-text {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.aligned-text_center {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.aligned-text_right {
+    grid-area: 3 / 3 / 4 / 4;  
+    justify-self: end;  
+}
+
+.no-letter-spacing {
+    letter-spacing: 0;
+}
+
+.cover__description {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 78px;
+    justify-content: end;
+    align-items: center;
+}
+
+.cover__description-text {
+    font-size: 22px;
+    line-height: 28px;
+    text-transform: uppercase;
+    word-spacing: 22px;
+    color: #fff;
+}
+
+.bet-button {
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff;
+    padding: 12px 32px;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.lots {
+    /* Сделала внутренний отступ у каждого блока отдельно, вместо общего main, потому что предположила,
+    что если у блока появится цветной фон или картирка, то так не будет белых "ушей", которые придётся
+    переделывать */
+    padding: 0 50px;
+}
+
+.lots__heading {
+    margin-left: 40px;
+    margin-bottom: 27px;
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.lots__card-list {
+    min-width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    list-style: none;
+}
+
+.lots__card-list-item {
+    flex: 1 1 33%;
+}
+
+.card-link {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+}
+
+.card {
+    position: relative;
+    z-index: -1;
+    padding: 50px 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-between;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.card_type_film {
+    background-image: url(../images/card-lot-01.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card__title {
+    position: relative;
+    z-index: 1;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 1.2;
+    text-transform: uppercase;
+    /* В отличие от других ссылок, где дизайнер сделал подчёркивание отдельной линией с намеремнным отступом,
+    здесь он применил Фигмовскую настройку "underline". Что расцениваю как указание применить text decoration underline
+    и в коде. Хоть и отображение в Фигме чуть-чуть другое (не прерывается на буквах с нижними выносными элементами) */
+    text-decoration: underline;
+}
+
+.card__text {
+    position: relative;
+    z-index: 1;
+}
+
+.card_type_book {
+    background-image: url(../images/card-lot-02.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card_type_picture {
+    background-image: url(../images/card-lot-03.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.lots__look-more-link {
+    margin-left: 40px;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #000; 
+}
+
+.about {
+    padding: 0 50px;
+    display: grid;
+    grid-template: 1fr / repeat(3, 1fr);
+    gap: 25px;
+    align-items: start;
+}
+
+.about__logo-image__container {
+    width: 240px;
+    height: 240px;
+    margin: auto;
+    align-self: flex-start;
+    padding-top: 68px;
+    text-align: center;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.about__logo-image {
+    width: 130px;
+}
+
+.about__description-column {
+    grid-area: 1 / 2 / 2 / 4;
+}
+
+.about__title {
+    margin: 100px 0;
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.about__text {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.footer {
+    padding: 180px 50px 90px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    /* Выделила в каждом большом логическом блоке (header, main, footer) "базовые" параметры шрифта. А затем точечно
+    переопределяла необычные стили */
+    font-size: 18px;
+    font-weight: normal;
+    color: #000;
+}
+
+.footer__menu-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+}
+
+.footer__menu-link {
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #000;
+}
+
+.footer__menu-link_active {
+    padding: 0;
+    border: 0;
+}
+
+.footer__social-list {
+    justify-self: end;
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+    list-style: none;
+}
+
+.footer__social-icon {
+    width: 48px;
+    height: 48px;
+}
+

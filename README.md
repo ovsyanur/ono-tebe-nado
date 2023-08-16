@@ -3,4 +3,3 @@
 Овсянникова Настя
 
 https://github.com/ovsyanur/ono-tebe-nado.git
-https://github.com/ovsyanur/ono-tebe-nado

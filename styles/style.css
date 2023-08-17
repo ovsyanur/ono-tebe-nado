@@ -205,6 +205,7 @@
 .lots__card-list-item {
     flex: 1 1 430px;
     flex-grow: 1;
+    min-height: 450px;
 }
 
 .card-link {
